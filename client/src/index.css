@@ -1,0 +1,102 @@
+:root {
+    --primary: #4F46E5;
+    --primary-hover: #4338CA;
+    --background: #F3F4F6;
+    --surface: #FFFFFF;
+    --text: #111827;
+    --text-muted: #6B7280;
+    --border: #E5E7EB;
+    --success: #10B981;
+    --danger: #EF4444;
+    --warning: #F59E0B;
+}
+
+[data-theme="dark"] {
+    --primary: #6366F1;
+    --primary-hover: #4F46E5;
+    --background: #111827;
+    --surface: #1F2937;
+    --text: #F9FAFB;
+    --text-muted: #9CA3AF;
+    --border: #374151;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
+
+body {
+    background-color: var(--background);
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.app-container { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* Navbar */
+.navbar {
+    background: var(--surface);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    position: sticky; top: 0; z-index: 100;
+}
+
+.nav-brand { font-size: 1.5rem; font-weight: 700; color: var(--primary); text-decoration: none; }
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-link { color: var(--text); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+.nav-link:hover { color: var(--primary); }
+
+/* Glassmorphism Card */
+.glass-card {
+    background: var(--surface);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+}
+
+/* Forms */
+.form-group { margin-bottom: 1.5rem; }
+.form-label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: var(--text); }
+.form-input, .form-select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--background);
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-input:focus, .form-select:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); }
+
+/* Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+}
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-hover); transform: translateY(-1px); }
+.btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+.btn-outline:hover { background: var(--primary); color: white; }
+
+/* Dashboard Grid */
+.dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.status-badge {
+    padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.875rem; font-weight: 600;
+}
+.status-Pending { background: var(--warning); color: #fff; }
+.status-Approved { background: var(--success); color: #fff; }
+.status-Rejected { background: var(--danger); color: #fff; }
+
+.auth-container { max-width: 400px; margin: 4rem auto; }
+.hero-section { text-align: center; padding: 4rem 2rem; }
+.hero-title { font-size: 3rem; margin-bottom: 1rem; color: var(--primary); }
+.hero-subtitle { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem; }
